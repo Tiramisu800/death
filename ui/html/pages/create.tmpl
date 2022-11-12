@@ -1,0 +1,34 @@
+{{define "title"}}Make a note {{end}}
+
+{{define "main"}}
+<form action='/note/create' method='POST'>
+
+<div>
+<label>Victim full name</label>
+{{with .Form.FieldErrors.fullname}}
+<label class='error'>{{.}}</label>
+{{end}}
+<input type='text' name='fullname' value='{{.Form.Fullname}}'>
+</div>
+
+<div>
+<label>Cause of death</label>
+{{with .Form.FieldErrors.howdie}}
+<label class='error'>{{.}}</label>
+{{end}}
+<textarea name='howdie'>{{.Form.HowDie}}</textarea>
+</div>
+<div>
+<label>Time of Death</label>
+{{with .Form.FieldErrors.die}}
+<label class='error'>{{.}}</label>
+{{end}}
+<input type='radio' name='die' value='40' {{if (eq .Form.Die 40)}}checked{{end}}> 40 secs
+<input type='radio' name='die' value='300' {{if (eq .Form.Die 300)}}checked{{end}}> 5 minutes
+<input type='radio' name='die' value='604800' {{if (eq .Form.Die 604800)}}checked{{end}}> 1 Week
+</div>
+<div>
+<input type='submit' value='Publish note'>
+</div>
+</form>
+{{end}}

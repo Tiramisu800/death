@@ -1,0 +1,23 @@
+ {{define "title"}}My Victims{{end}}
+{{define "main"}}
+<h2>Victims</h2>
+{{if .Notes}}
+<table>
+<tr>
+<th>Name</th>
+<th>Death Time</th>
+<th>ID</th>
+</tr>
+{{range .Notes}}
+<tr>
+<!-- Use the new clean URL style-->
+<td><a href='/note/view/{{.ID}}'>{{.Fullname}}</a></td>
+<td>{{humanDate .Die}}</td>
+<td>#{{.ID}}</td>
+</tr>
+{{end}}
+</table>
+{{else}}
+<p>There's nothing to see here... yet!</p>
+{{end}}
+{{end}}

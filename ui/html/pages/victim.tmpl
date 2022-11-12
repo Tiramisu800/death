@@ -1,0 +1,16 @@
+{{define "title"}}Victim #{{.Note.ID}}{{end}}
+{{define "main"}}
+{{with .Note}}
+<div class='note'>
+<div class='metadata'>
+<strong>{{.Fullname}}</strong>
+<span>#{{.ID}}</span>
+</div>
+<pre><code>{{.HowDie}}</code></pre>
+<div class='metadata'>
+<time>Created: {{humanDate .Created}}</time>
+<time>Expires: {{humanDate .Die}}</time>
+</div>
+</div>
+{{end}}
+{{end}}
