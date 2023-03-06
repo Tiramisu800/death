@@ -1,4 +1,6 @@
 # Death note
+Death Note on website based on snippetbox in Golang
+
 on Git Bush
 cd death
 go run ./cmd/web
